@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+Light theme main: bg-[#f8f8fa] 
+Light theme secondary: bg-white 
+
+Dark theme main: dark:bg-[#282C34]
+Dark theme secondary: dark:bg-[#20232a]
+*/
+
+/* Hide the MS Edge password reveal button because site has own implementation */
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
+input {
+  @apply dark:focus:outline dark:outline-slate-400;
+}
+
+.form-input {
+  @apply h-10 rounded-md px-3 border border-gray-200/60;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* SCROLLBAR STYLING */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  @apply dark:bg-[#24282f] rounded-full;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 5px;
+  @apply dark:bg-[#2c303a] dark:shadow-sm;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+  @apply dark:bg-[#373c48];
+}
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.text_shadow {
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.799);
+}
+
+.progress_bar_fill {
+  background-color: #fff;
+  width: 0%;
+  animation: progress-bar-growing 4s linear;
+}
+@keyframes progress-bar-growing {
+  to {
+    width: 100%;
+  }
+}
+
+.rotate {
+  animation: rotate 2s ease-in-out forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(270deg);
+    opacity: 0;
+  }
+}
+
+.scale_animation {
+  animation: scale-animation 1s 1s ease-in-out;
+}
+
+@keyframes scale-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.skeleton_animation {
+  animation: from-left-to-right 2s 0.8s both;
+}
+
+@keyframes from-left-to-right {
+  0% {
+    translate: -100%;
+  }
+  100% {
+    translate: 100%;
+  }
+}
+
+.grow-from-bottom-inactive {
+  position: absolute;
+  top: -58px;
+  left: 50%;
+  transform: translate(-50%) scaleY(0);
+  transition: transform 0.1s ease-in-out;
+}
+.grow-from-bottom-active {
+  transform: translate(-50%, -50%) scaleY(1);
+}
