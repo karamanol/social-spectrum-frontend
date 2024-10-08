@@ -177,7 +177,7 @@ function Profile() {
                   Swal.fire({
                     imageUrl: user[0].profilePicture || DefaultUserImage,
                     showConfirmButton: false,
-                    width: "clamp(70%,800px,95%)",
+                    padding: "20px",
                     animation: false,
                     showCloseButton: true,
                     focusCancel: false,
