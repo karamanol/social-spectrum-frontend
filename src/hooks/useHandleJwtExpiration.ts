@@ -24,11 +24,9 @@ export function forceUserToLogIn(
   localStorage.removeItem("user");
   navigate("/login", { replace: true });
   Swal.fire({
-    title:
-      message ||
-      "Session expired. Please log in. If you've been logged out unexpectedly, check your browser settings and ensure third-party cookies are enabled.",
-    // showConfirmButton: false,
-    // timer: 3000,
+    title: message || "Session expired. Please log in.",
+    showConfirmButton: false,
+    timer: 3000,
     timerProgressBar: true,
     icon: icon || "error",
     scrollbarPadding: false,
