@@ -9,6 +9,7 @@ import { getErrorMessage } from "../utils/getErrorMessage";
 import { AxiosError } from "axios";
 import { MdDeleteOutline } from "react-icons/md";
 import defaultUserImage from "../assets/default-user.jpg";
+import SpinnerCircle from "./SpinnerCircle";
 
 function AddPostForm() {
   const { currentUser } = useAuth();
@@ -119,7 +120,7 @@ function AddPostForm() {
                 <img
                   alt=""
                   src={URL.createObjectURL(postImage)}
-                  className="h-8 ml-3 drop-shadow"
+                  className="h-8 w-8 object-cover ml-3 drop-shadow"
                 />
                 <button
                   className="text-gray-700 dark:text-gray-200 hover:text-red-700"
@@ -135,8 +136,12 @@ function AddPostForm() {
             disabled={isAddingPost}
             type="button"
             onClick={handleAddPost}
-            className="bg-slate-800 dark:bg-gray-700 hover:opacity-95 px-3 py-1 rounded text-gray-100 dark:text-gray-200 shadow">
-            {isAddingPost ? "Adding..." : "Add post"}
+            className="bg-slate-800 dark:bg-gray-700 hover:opacity-95 px-3 py-1 rounded text-gray-100 dark:text-gray-200 shadow w-24 h-9">
+            {isAddingPost ? (
+              <SpinnerCircle iconClassName="h-5 dark:text-gray-700 text-slate-800" />
+            ) : (
+              "Add post"
+            )}
           </button>
         </div>
       </form>
